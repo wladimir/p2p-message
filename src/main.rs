@@ -1,11 +1,12 @@
+use serde::{Deserialize, Serialize};
 use std::sync::{Arc, Mutex};
 use std::time::{SystemTime, UNIX_EPOCH};
-use serde::{Deserialize, Serialize};
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::{TcpListener, TcpStream};
 use tokio::sync::broadcast;
 
-#[derive(Serialize, Deserialize, Debug, Clone)]struct Message {
+#[derive(Serialize, Deserialize, Debug, Clone)]
+struct Message {
     from: String,
     content: String,
     timestamp: u64,
